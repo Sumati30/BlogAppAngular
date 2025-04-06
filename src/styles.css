@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+.mainHeaderText{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.headerText{
+    display: flex;
+    align-items: left;
+    justify-content: left;
+}
+
+.card-body{
+    height: auto;
+}
