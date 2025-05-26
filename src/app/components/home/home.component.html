@@ -1,7 +1,32 @@
 
-<div class="container">
+<div class="container-fluid">
     <h2 class="mainHeaderText">Welcome to My Blog!</h2>
-    <div class="card">
+
+    <div class="card-deck">
+      <div class="card" (click)="create()">
+        <div class="card-body text-center">
+          <p class="card-text">Create Blog</p>
+        </div>
+      </div>
+      <div class="card" (click)="update()">
+        <div class="card-body text-center">
+          <p class="card-text">Update Blog</p>
+        </div>
+      </div>
+      <div class="card" (click)="read()">
+        <div class="card-body text-center">
+          <p class="card-text">Explore Existing Content</p>
+        </div>
+      </div>
+      <!-- <div class="card">
+        <div class="card-body text-center">
+          <p class="card-text">Some text inside the fourth card</p>
+        </div>
+      </div> -->
+    </div>
+
+
+    <!-- <div class="card">
       <div class="card-header">Header</div>
       <div class="card-body">
         <h3 class="headerText">The List Shows Latest Blogs! Click to Read...</h3>
@@ -16,5 +41,5 @@
         </div>
       </div> 
       <div class="card-footer">Footer</div>
-    </div>
+    </div> -->
 </div>

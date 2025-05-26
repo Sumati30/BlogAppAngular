@@ -1,12 +1,180 @@
-<div class="container">
+<div class="container-fluid">
+  <div>
+    <div>
+      <div *ngIf="blogType == 'create'">
+         <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <h3>Please provide details to create blog!</h3>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-12 formBody">
+            <form #mainForm="ngForm" (ngSubmit)="onSubmit(mainForm)">
+              <div class="col-md-12">
+                <fieldset>
+                  <div class="col-md-12"><legend>User Info</legend></div>
+                  <div class="col-md-12 mainRow">
+                    <label class="labelText" for="name" class="labelText">Name:</label>
+                    <input class="inputField" type="text" id="name" name="name" ngModel required />
+                  </div>
+              
+                  <div class="col-md-12 mainRow">
+                    <label class="labelText" for="email">Email:</label>
+                    <input class="inputField" type="email" id="email" name="email" ngModel required />
+                  </div>
+                </fieldset>
+              </div>
+            
+              <div class="col-md-12">
+                <fieldset>
+                  <div class="col-md-12"><legend>Blog Info</legend></div>
+                  <div class="col-md-12 mainRow">
+                    <label class="labelText" for="title">Title:</label>
+                    <input class="inputField" type="text" id="title" name="title" ngModel required/>
+                  </div>
+              
+                  <div class="col-md-12 mainRow">
+                    <label class="labelText" for="content" style="margin-bottom: 82px;">Content:</label>
+                    <textarea class="inputField" id="content" name="content" rows="4" cols="50" ngModel required></textarea>
+                  </div>
+  
+                  <div class="col-md-12 mainRow">
+                    <label class="labelText" for="image">Upload Image:</label>
+                    <input class="inputField" (change)="onFileSelected($event)" type="file" id="image" name="image" ngModel required/>
+                  </div>
+                </fieldset>
+              </div>
+            
+              <div class="submitButton">
+                <button type="submit" [disabled]="!mainForm.valid">Submit</button>
+              </div>
+            </form>
+            
+            <p *ngIf="submitted">Form submitted successfully!</p>
+            
+          </div>
+         </div>
+      </div>
+      <div *ngIf="blogType == 'update'">
+        <div>
+          <div>
+            <h5 class="headerText">The List Shows Latest Blogs! Click to Read...</h5>
+            <div class="card">
+              <!-- <div class="card-header">Header</div> -->
+              <div class="card-body">
+                
+                <div class="listBody">
+                  <ol>
+                    <li *ngFor="let item of imgArray" (click)="showDetails(item)">{{item.title}}</li>
+                  </ol>
+                </div>
+              </div>
+              <!-- <div class="card-footer">Footer</div> -->
+            </div>
+            <div class="card">
+              <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                  <h3>Please provide details to create blog!</h3>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-12 formBody">
+                  <form #mainForm="ngForm" (ngSubmit)="onSubmit(mainForm)">
+                    <div class="col-md-12">
+                      <fieldset>
+                        <div class="col-md-12"><legend>User Info</legend></div>
+                        <div class="col-md-12 mainRow">
+                          <label class="labelText" for="name" class="labelText">Name:</label>
+                          <input class="inputField" type="text" id="name" name="name" ngModel required />
+                        </div>
+                    
+                        <div class="col-md-12 mainRow">
+                          <label class="labelText" for="email">Email:</label>
+                          <input class="inputField" type="email" id="email" name="email" ngModel required />
+                        </div>
+                      </fieldset>
+                    </div>
+                  
+                    <div class="col-md-12">
+                      <fieldset>
+                        <div class="col-md-12"><legend>Blog Info</legend></div>
+                        <div class="col-md-12 mainRow">
+                          <label class="labelText" for="title">Title:</label>
+                          <input class="inputField" type="text" id="title" name="title" ngModel required/>
+                        </div>
+                    
+                        <div class="col-md-12 mainRow">
+                          <label class="labelText" for="content" style="margin-bottom: 82px;">Content:</label>
+                          <textarea class="inputField" id="content" name="content" rows="4" cols="50" ngModel required></textarea>
+                        </div>
+        
+                        <div class="col-md-12 mainRow">
+                          <label class="labelText" for="image">Upload Image:</label>
+                          <input class="inputField" (change)="onFileSelected($event)" type="file" id="image" name="image" ngModel required/>
+                        </div>
+                      </fieldset>
+                    </div>
+                  
+                    <div class="submitButton">
+                      <button type="submit" [disabled]="!mainForm.valid">Submit</button>
+                    </div>
+                  </form>
+                  
+                  <p *ngIf="submitted">Form submitted successfully!</p>
+                  
+                </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="blogType == 'read'">
+        <div>
+          <h5 class="headerText">The List Shows Latest Blogs! Click to Read...</h5>
+          <div class="card">
+            <!-- <div class="card-header">Header</div> -->
+            <div class="card-body">
+              
+              <div class="listBody">
+                <ol>
+                  <li *ngFor="let item of imgArray" (click)="showDetails(item)">{{item.title}}</li>
+                </ol>
+              </div>
+            </div>
+            <!-- <div class="card-footer">Footer</div> -->
+          </div>
+          <div class="card">
+             <div>
+              <div class="card-body">
+                <h4>{{title}}</h4>
+                <div id="loading">Loading...</div>
+                <div class="imgBlock" *ngIf="imageUrl; else loading">
+                  <img [src]="imageUrl" alt="Fetched Image">
+                </div>
+                <ng-template #loading>
+                  Loading image...
+                </ng-template>
+                <div>
+                  <p>{{content}}</p>
+                </div>
+              </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="container-fluid">
     <div class="card">
         <div class="card-header">Header</div>
         <div class="card-body">
-          <!-- <h3 class="headerText">The List Shows Latest Blogs! Click to Read...</h3> -->
-          <div class="listBody">
-              <img src="display">
+          <div id="loading">Loading...</div>
+          <div class="imgBlock" *ngIf="imageUrl; else loading">
+            <img [src]="imageUrl" alt="Fetched Image">
           </div>
+          <ng-template #loading>
+            Loading image...
+          </ng-template>
         </div> 
         <div class="card-footer">Footer</div>
       </div>
-</div>
+</div> -->

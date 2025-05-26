@@ -1,0 +1,51 @@
+.container-fluid{
+  padding: 40px;
+  background-color: rgb(223, 223, 223);
+}
+
+#loading {
+    display: none;
+  }
+
+  .imgBlock{
+    width: 500px;
+    height: 200px;
+  }
+
+  img{
+    width: 400px;
+    height: 200px;
+  }
+
+  .mainRow{
+   padding-bottom: 5px;
+  }
+
+  .labelText{
+    width:20%;
+  }
+
+.submitButton {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-right: 30px;
+}
+
+::ng-deep .inputField {
+    width: 70% !important;
+    float: right !important;
+}
+
+.formBody{
+  background-color: rgb(252, 244, 234);
+  padding: 10px;
+}
+
+legend{
+  margin-left: -5px !important;
+  padding-left: 6px;
+  border: 1px solid rgb(248, 216, 175);
+  border-radius: 8px;
+  background-color: rgb(241, 241, 241);
+}
