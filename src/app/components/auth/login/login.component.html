@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="col-md-12 offset-3">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mainpage">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a class="navbar-brand" style="color: black;">FBOOK</a>
+                            <ul class="nav justify-content-end">
+                                <li class="nav-item"><a class="nav-link" [routerLink]="['/signup']">Register</a></li>
+                                <li class="nav-item"><a class="nav-link active" style="color:red" [routerLink]="['/login']">Login</a></li>
+                            </ul>
+                        </div>
+                        <div class="panel-body">
+                            <form (ngSubmit)="loginForm(f)" #f=ngForm>
+                                <div class="mainform">
+                                    <div class="form-group row">
+                                        <div class="col-md-2"><label for="name">Username: </label></div>
+                                        <div class="col-md-8"><input id="name" class="form-control" [(ngModel)]="userName" type="text" name="email" required></div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-2"><label for="password">Password: </label></div>
+                                        <div class="col-md-8"><input id="password" class="form-control" [(ngModel)]="password" type="password" name="password" required></div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary" style="float:right" [disabled]="!f.valid">Login</button>
+                                <!-- <button class="btn btn-default" [routerLink]="['/forgot-password']">Forgot Password</button> -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

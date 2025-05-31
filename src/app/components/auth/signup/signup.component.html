@@ -1,0 +1,59 @@
+
+<div class="container">
+    <div class="col-md-12 offset-3">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mainpage">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a class="navbar-brand" style="color: black;">FBOOK</a>
+                            <ul class="nav justify-content-end">
+                                <li class="nav-item"><a class="nav-link" style="color:red" [routerLink]="['/register']">Register</a></li>
+                                <li class="nav-item"><a class="nav-link active" [routerLink]="['/login']">Login</a></li>
+                            </ul>
+                        </div>
+                        <div class="panel-body">
+                            <!-- <div class="row justify-content-center">
+                                <h5 class="navbar-text" style="color: black;">REGISTRATION</h5>
+                            </div> -->
+                            <form (ngSubmit)="register_user(f)" #f=ngForm>
+                                <div class="mainform">
+                                    <div class="form-group row">
+                                        <div class="col-md-2"><label for="fname">Firstname: </label></div>
+                                        <div class="col-md-8"><input id="fname" class="form-control form-control-sm" ngModel type="text" name="first_name" required></div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-2"><label for="lname">Lastname: </label></div>
+                                        <div class="col-md-8"><input id="lname" class="form-control form-control-sm" ngModel type="text" name="last_name" required></div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-2"><label for="email">Email: </label></div>
+                                        <div class="col-md-8"><input id="email" class="form-control form-control-sm" ngModel type="email" name="email" required></div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-2"><label for="dob">DOB: </label></div>
+                                        <div class="col-md-8"><input id="dob" class="form-control form-control-sm" ngModel type="date" name="dob" required></div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-2"><label for="gender">Gender: </label></div>
+                                        <div class="col-md-8"><select id="gender" class="form-control form-control-sm" ngModel type="text" name="gender" required>
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-2"><label for="password">Password: </label></div>
+                                        <div class="col-md-8"><input id="password" class="form-control form-control-sm" ngModel type="password" name="password" required></div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary" style="float:right" [disabled]="!f.valid">Register</button>
+                                <button class="btn btn-default" [routerLink]="['/login']">Login</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
